@@ -34,7 +34,7 @@ class TakeScreenshot extends Action {
       return false;
     }
 
-    final image = await boundary.toImage();
+    final image = await boundary.toImage(pixelRatio: 2);
     final byteData = await image.toByteData(format: ImageByteFormat.png);
     final pngBytes = byteData!.buffer.asUint8List();
     await tester.storeFile(path, pngBytes);
